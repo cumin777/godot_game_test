@@ -1,3 +1,4 @@
+class_name MenuBox
 extends VBoxContainer
 
 @export var root: Control
