@@ -1,4 +1,5 @@
 @tool
+class_name AskPopup
 extends DialoguePanel
 
 @export var line_edit : LineEdit
