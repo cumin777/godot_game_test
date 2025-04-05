@@ -53,8 +53,8 @@ test_at:
 
 test_notifications:
 	"Click next and notification should appear"
-	notif: "some notification"
+	notify: "some notification"
 	"You should see notification in top right corner"
 	"Click next and notification should appear, but for shorter time"
-	notif 0.3: "some shorter time notification"
+	notify 0.3: "some shorter time notification"
 	jump test_menu
