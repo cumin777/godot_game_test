@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://w2n5oa7ar7vi"]
 
-[ext_resource type="Script" path="res://scenes/DialogueUI/ProcentContainer.gd" id="1_rupor"]
-[ext_resource type="Script" path="res://scenes/DialogueUI/MenuBox.gd" id="2_x42km"]
+[ext_resource type="Script" uid="uid://dyub00pc1rk7" path="res://addons/rakugo-nodes/nodes/ProcentContainer.gd" id="1_rupor"]
+[ext_resource type="Script" uid="uid://cgqhnwbo57faw" path="res://scenes/DialogueUI/MenuBox.gd" id="2_x42km"]
 
 [node name="MenuScrollContainer" type="ScrollContainer"]
 custom_minimum_size = Vector2(576, 504)

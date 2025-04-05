@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cimp70l7c0y2p"]
 
-[ext_resource type="Script" path="res://addons/rakugo_regex_lab/regex.gd" id="1"]
+[ext_resource type="Script" uid="uid://bvtwxemxg2fli" path="res://addons/rakugo_regex_lab/regex.gd" id="1"]
 
 [node name="RegexWindow" type="Window"]
 title = "Rakugo Regex Lab"

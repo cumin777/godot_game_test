@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2numvphf2kau"]
 
-[ext_resource type="Script" path="res://scenes/OptionsMenu/Video/VideoOptionsMenu.gd" id="1"]
+[ext_resource type="Script" uid="uid://dooc8ugofmo5r" path="res://scenes/OptionsMenu/Video/VideoOptionsMenu.gd" id="1"]
 
 [node name="VideoOptionsMenu" type="VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)

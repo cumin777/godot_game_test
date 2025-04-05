@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RenPyMarkupParser" load_steps=6 format=3 uid="uid://bxa5smnbrf6bu"]
 
-[ext_resource type="Script" path="res://addons/advanced-text/parsers/RenPyMarkupParser.gd" id="1_8uywj"]
+[ext_resource type="Script" uid="uid://dtfljbtsogttu" path="res://addons/advanced-text/parsers/RenPyMarkupParser.gd" id="1_8uywj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c1gva"]
 font_size = 22

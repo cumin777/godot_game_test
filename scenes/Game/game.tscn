@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1flo1brh3p4c"]
 
-[ext_resource type="Script" path="res://scenes/Game/game.gd" id="1_o2piy"]
+[ext_resource type="Script" uid="uid://ckifs6wqw8503" path="res://scenes/Game/game.gd" id="1_o2piy"]
 [ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://scenes/PauseMenu/PauseMenu.tscn" id="2_hcope"]
 [ext_resource type="PackedScene" uid="uid://cp3p3kqcjh0me" path="res://scenes/EndMenu/EndMenu.tscn" id="3_yfekm"]
 [ext_resource type="PackedScene" uid="uid://cnsu6sfdku23l" path="res://scenes/DialogueUI/dialogue_ui.tscn" id="4_assa4"]
-[ext_resource type="Script" path="res://addons/Rakugo/lib/nodes/RakuScriptDialogue.gd" id="5_xhbr8"]
+[ext_resource type="Script" uid="uid://d1fegtsffsy24" path="res://addons/Rakugo/lib/nodes/RakuScriptDialogue.gd" id="5_xhbr8"]
 [ext_resource type="Texture2D" uid="uid://beg4vmqhsx6ak" path="res://icon.svg" id="6_sgy42"]
 
 [node name="Game" type="Node"]

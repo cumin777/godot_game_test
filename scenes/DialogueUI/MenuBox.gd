@@ -23,15 +23,15 @@ func _on_visibility_changed():
 	parent.visible = visible
 
 func _on_menu(choices:Array):
-	for id in choices.size():
-		var choice_btn := AdvancedTextButton.new()
-		add_child(choice_btn)
-		choice_btn.fit_content = true
-		choice_btn.scroll_active = false
-		choice_btn.shortcut_keys_enabled = false
-		choice_btn.parser = markup
-		choice_btn._text = choices[id]
-		choice_btn.pressed.connect(_on_choice.bind(id))
+	# for id in choices.size():
+	# 	var choice_btn := AdvancedTextButton.new()
+	# 	add_child(choice_btn)
+	# 	choice_btn.fit_content = true
+	# 	choice_btn.scroll_active = false
+	# 	choice_btn.shortcut_keys_enabled = false
+	# 	choice_btn.parser = markup
+	# 	choice_btn._text = choices[id]
+	# 	choice_btn.pressed.connect(_on_choice.bind(id))
 	
 	menu_ready.emit()
 	show()

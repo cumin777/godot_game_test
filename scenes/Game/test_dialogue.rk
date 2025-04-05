@@ -58,5 +58,3 @@ test_notifications:
 	"Click next and notification should appear, but for shorter time"
 	notif 0.3: "some shorter time notification"
 	jump test_menu
-
-

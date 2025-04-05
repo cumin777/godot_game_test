@@ -34,8 +34,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0hy2b"]
 _data = {
-"RESET": SubResource("Animation_ji4fx"),
-"test": SubResource("Animation_ja6k6")
+&"RESET": SubResource("Animation_ji4fx"),
+&"test": SubResource("Animation_ja6k6")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d0w75"]
