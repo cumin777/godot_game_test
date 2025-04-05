@@ -8,7 +8,7 @@ class_name ProcentControl
 @export var root : Control = null
 
 ## Set it from 1 to 100
-## It chaning this works only in Editor
+## It changing this works only in Editor
 @export var procent_size := Vector2(100, 100):
 	set(value):
 		if not Engine.is_editor_hint():

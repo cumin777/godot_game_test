@@ -1,7 +1,7 @@
 @tool
 extends DialoguePanel
 
-@export var next_btn: AdvancedTextButton
+# @export var next_btn: AdvancedTextButton
 
 func _ready():
 	if Engine.is_editor_hint():
