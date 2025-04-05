@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MarkdownParser" load_steps=6 format=3 uid="uid://6ioam3qiqsqa"]
 
-[ext_resource type="Script" path="res://addons/advanced-text/parsers/MarkdownParser.gd" id="1_ckysk"]
+[ext_resource type="Script" uid="uid://bjyjki5ox5856" path="res://addons/advanced-text/parsers/MarkdownParser.gd" id="1_ckysk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qwgxu"]
 font_size = 22
