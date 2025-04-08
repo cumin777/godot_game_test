@@ -6,6 +6,12 @@
 class_name AdvancedTextLabel
 extends RichTextLabel
 
+const font_names = [
+	&"normal", &"bold",
+	&"italics", &"mono",
+	&"bold_italics"
+]
+
 ## By default links (begins with `http`) will be opened in web browser
 ## For custom links you can connect to `custom_link` signal
 signal custom_link(url:String)
@@ -21,6 +27,38 @@ signal custom_link(url:String)
 			return
 		
 		_parse_text()
+
+## This will override default font theme settings
+@export var font_settings: LabelSettings:
+	set(value):
+		font_settings = value
+		
+		if font_settings:
+			font_settings_update()
+			font_settings.changed.connect(font_settings_update)
+		
+		else:
+			var constants := [
+				&"outline_size", &"shadow_outline_size",
+				&"shadow_offset_x", &"shadow_offset_y"
+			]
+			for con in constants:
+				Utils.rm_theme_override_if_possible(
+					self, &"constant", con)
+			
+			var colors := [
+				&"default_color",
+				&"font_outline_color",
+				&"font_shadow_color",
+			]
+			for col in colors:
+				Utils.rm_theme_override_if_possible(self, &"color", col)
+
+			for font in font_names:
+				font += "_font"
+				Utils.rm_theme_override_if_possible(self, &"font", font)
+				font += "_size"
+				Utils.rm_theme_override_if_possible(self, &"font_size", font)
 
 @export var hint_popup_size := Vector2(315, 100)
 
@@ -43,6 +81,7 @@ signal custom_link(url:String)
 
 var font_size : int:
 	get:
+		if font_settings: return font_settings.font_size
 		if !theme: return 16
 		return theme.get_font_size(get_class(), &"normal")
 
@@ -62,9 +101,8 @@ func _parse_text() -> void:
 	if parser:
 		if AdvancedText.rakugo:
 			var r = AdvancedText.rakugo
-			var sg = r.sg_variable_changed
-			if !sg.is_connected(_on_rakuvars_changed):
-				sg.connect(_on_rakuvars_changed)
+			var sg = "sg_variable_changed"
+			Utils.connect_if_possible(r, sg, _on_rakuvars_changed)
 	
 	if !parser:
 		push_warning("parser is null at " + str(name))
@@ -79,8 +117,7 @@ func _on_rakuvars_changed(var_name, value) -> void:
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray = []
-	if !parser:
-		warnings.append("Need parser.")
+	if !parser: warnings.append("Need parser.")
 
 	return warnings
 
@@ -109,11 +146,34 @@ func _on_meta_hover_ended(_url: String) -> void:
 
 func _validate_property(property: Dictionary) -> void:
 	match property.name:
-		&"text":
-			property.usage = PROPERTY_HINT_NONE
+		&"text": property.usage = PROPERTY_HINT_NONE
 		&"bbcode_enabled":
 			property.usage = PROPERTY_HINT_NONE
 
 ## Override it to make hint_id system working
 func _hint_requested(hint_id:StringName) -> String:
 	return ""
+
+func font_settings_update():
+	var f_font := font_settings.font
+	var f_size := font_settings.font_size
+	var f_color := font_settings.font_color
+	var f_outline_color := font_settings.outline_color
+	var f_outline_size := font_settings.outline_size
+	var f_shadow_color := font_settings.shadow_color
+	var f_shadow_size := font_settings.shadow_size
+	var f_shadow_offset := font_settings.shadow_offset
+
+	add_theme_color_override(&"default_color", f_color)
+	add_theme_color_override(&"font_outline_color", f_outline_color)
+	add_theme_constant_override(&"outline_size", f_outline_size)
+	add_theme_color_override(&"font_shadow_color", f_shadow_color)
+	add_theme_constant_override(&"shadow_outline_size", f_shadow_size)
+	add_theme_constant_override(&"shadow_offset_x", f_shadow_offset.x)
+	add_theme_constant_override(&"shadow_offset_y", f_shadow_offset.y)
+
+	for font in font_names:
+		font += "_font"
+		add_theme_font_override(font, f_font)
+		font += "_size"
+		add_theme_font_size_override(font, f_size)
