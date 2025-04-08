@@ -8,7 +8,7 @@ extends ButtonContainer
 		if !is_node_ready(): await ready
 		if label:
 			label.parser = parser
-			label.text = text
+			label.advanced_text = text
 
 @export var parser: TextParser:
 	set(value):
@@ -21,3 +21,9 @@ extends ButtonContainer
 		text = value
 		if !is_node_ready(): await ready
 		if label: label.advanced_text = value
+
+func _ready() -> void:
+	super._ready()
+	if label:
+		label.parser = parser
+		label.advanced_text = text

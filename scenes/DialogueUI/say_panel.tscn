@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://cgbqtpdgyaxq3"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_xgq2h")
 
 [node name="DialogueLabel" type="RichTextLabel" parent="VBoxContainer"]

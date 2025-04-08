@@ -2,13 +2,13 @@
 extends ProcentControl
 class_name NotificationPanel
 
-@export var notification_label : AdvancedTextLabel = null
+@export var notification_label: AdvancedTextLabel
 
 @export_subgroup("Time")
-@export var timer : Timer = null
+@export var timer: Timer
 @export var default_notification_time := 0.5
 
-var markup : TextParser
+var markup: TextParser
 
 signal notify_ready
 
