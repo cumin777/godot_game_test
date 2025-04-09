@@ -7,15 +7,21 @@ extends FontIconButton
 
 @export var on_icon_settings := FontIconSettings.new():
 	set(value):
-		on_icon_settings = value
+		if on_icon_settings and _toggle_icon_on:
+			unset_icon_connections(on_icon_settings, _toggle_icon_on)
 		if !is_node_ready(): await ready
+		on_icon_settings = value
 		_toggle_icon_on.icon_settings = value
+		setup_icon_connections(on_icon_settings, _toggle_icon_on)
 
 @export var off_icon_settings := FontIconSettings.new():
 	set(value):
-		off_icon_settings = value
+		if on_icon_settings and _toggle_icon_off:
+			unset_icon_connections(on_icon_settings, _toggle_icon_off)
 		if !is_node_ready(): await ready
+		on_icon_settings = value
 		_toggle_icon_off.icon_settings = value
+		setup_icon_connections(on_icon_settings, _toggle_icon_off)
 
 var _toggle_icon_on: FontIcon
 var _toggle_icon_off: FontIcon

@@ -28,9 +28,12 @@ var layout_order := "Label-Icon":
 @export_group("Icon", "icon_")
 @export var icon_settings := FontIconSettings.new():
 	set(value):
-		icon_settings = value
+		if icon_settings and _font_icon:
+			unset_icon_connections(icon_settings, _font_icon)
 		if !is_node_ready(): await ready
+		icon_settings = value
 		_font_icon.icon_settings = value
+		setup_icon_connections(icon_settings, _font_icon)
 
 @export_group("Label", "label_")
 @export var label_text := "":
@@ -69,13 +72,22 @@ func _get_lay_dict() -> Dictionary:
 
 func _add_icon(_icon_settings: FontIconSettings) -> FontIcon:
 	var empty_style := StyleBoxEmpty.new()
-	var _icon = FontIcon.new()
+	var _icon := FontIcon.new()
 	_icon.add_theme_stylebox_override("normal", empty_style)
-	Utils.connect_if_possible(_icon_settings, "changed",
-		func(): update_icon(_icon_settings, _icon))
+	setup_icon_connections(_icon_settings, _icon)
 	return _icon
 
-func _ready():
+func setup_icon_connections(_icon_settings: FontIconSettings, _icon: FontIcon):
+	Utils.connect_if_possible(_icon_settings, "changed",
+		func(): update_icon(_icon_settings, _icon)
+	)
+
+func unset_icon_connections(_icon_settings: FontIconSettings, _icon: FontIcon):
+	Utils.disconnect_if_possible(_icon_settings, "changed",
+		func(): update_icon(_icon_settings, _icon)
+	)
+
+func _ready() -> void:
 	super._ready()
 	for ch: Control in get_children():
 		ch.queue_free()
@@ -83,6 +95,7 @@ func _ready():
 	ready.connect(func(): self.layout_order = layout_order)
 	var empty_style := StyleBoxEmpty.new()
 	_box = BoxContainer.new()
+	_box.alignment = layout_alignment
 	_font_icon = _add_icon(icon_settings)
 
 	_label = Label.new()
@@ -91,13 +104,6 @@ func _ready():
 	_margins = MarginContainer.new()
 	_margins.add_child(_box)
 	add_child(_margins)
-
-	Utils.connect_if_possible(
-		label_settings, "changed",
-		func():
-			if label_settings != _label.label_settings:
-				_label.label_settings = label_settings
-	)
 
 func update_icon(new_icon_settings: FontIconSettings, font_icon: FontIcon):
 	if new_icon_settings != font_icon.icon_settings:

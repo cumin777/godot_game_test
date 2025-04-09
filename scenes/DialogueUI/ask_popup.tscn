@@ -8,7 +8,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwsf0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul2fe"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwsf0"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -109,7 +109,7 @@ layout_mode = 2
 [node name="ConfirmButton" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ul2fe")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cwsf0")
 script = ExtResource("4_cwsf0")
 icon_settings = SubResource("Resource_ebuem")
 label_text = "Confirm"
@@ -119,7 +119,7 @@ metadata/_custom_type_script = "uid://pwyh8365is28"
 [node name="SkipButton" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ul2fe")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cwsf0")
 script = ExtResource("4_cwsf0")
 icon_settings = SubResource("Resource_cwsf0")
 label_text = "Skip"
