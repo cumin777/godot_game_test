@@ -6,21 +6,18 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xgq2h"]
 
-[node name="SayPanel" type="Panel" node_paths=PackedStringArray("character_name_label", "dialogue_label", "root")]
+[node name="SayPanel" type="PanelContainer" node_paths=PackedStringArray("character_name_label", "dialogue_label", "root")]
 self_modulate = Color(1, 1, 1, 0.5)
 custom_minimum_size = Vector2(1280, 180)
+offset_right = 1280.0
+offset_bottom = 180.0
 script = ExtResource("1_sqegj")
 character_name_label = NodePath("VBoxContainer/SpeakerLabel")
 dialogue_label = NodePath("VBoxContainer/DialogueLabel")
-root = NodePath(".")
+root = NodePath("")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="SpeakerLabel" type="RichTextLabel" parent="VBoxContainer"]
 clip_contents = false
