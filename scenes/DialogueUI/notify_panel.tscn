@@ -6,7 +6,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_e2xjp"]
 
-[node name="NotifyPanel" type="PanelContainer" node_paths=PackedStringArray("notification_label", "timer", "root")]
+[node name="NotifyPanel" type="PanelContainer" node_paths=PackedStringArray("notification_label", "timer")]
 self_modulate = Color(1, 1, 1, 0.5)
 anchors_preset = -1
 anchor_left = 0.687
@@ -18,7 +18,6 @@ grow_horizontal = 2
 script = ExtResource("1_vufgk")
 notification_label = NodePath("MarginContainer/AdvancedTextLabel")
 timer = NodePath("Timer")
-root = NodePath("")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

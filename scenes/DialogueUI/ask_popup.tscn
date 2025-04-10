@@ -8,7 +8,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwsf0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwsf0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7yrp"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -48,7 +48,7 @@ shadow_offset = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_s1dce"]
 
-[node name="AskPopup" type="PanelContainer" node_paths=PackedStringArray("line_edit", "character_name_label", "dialogue_label", "root")]
+[node name="AskPopup" type="PanelContainer" node_paths=PackedStringArray("line_edit", "character_name_label", "dialogue_label")]
 self_modulate = Color(1, 1, 1, 0.5)
 custom_minimum_size = Vector2(576, 180)
 offset_right = 576.0
@@ -57,7 +57,6 @@ script = ExtResource("1_jk00t")
 line_edit = NodePath("VBoxContainer/LineEdit")
 character_name_label = NodePath("VBoxContainer/SpeakerLabel")
 dialogue_label = NodePath("VBoxContainer/DialogueLabel")
-root = NodePath("")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -106,7 +105,7 @@ layout_mode = 2
 [node name="ConfirmButton" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_cwsf0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_t7yrp")
 script = ExtResource("4_cwsf0")
 icon_settings = SubResource("Resource_ebuem")
 label_text = "Confirm"
@@ -116,7 +115,7 @@ metadata/_custom_type_script = "uid://pwyh8365is28"
 [node name="SkipButton" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_cwsf0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_t7yrp")
 script = ExtResource("4_cwsf0")
 icon_settings = SubResource("Resource_cwsf0")
 label_text = "Skip"
