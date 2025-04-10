@@ -19,6 +19,8 @@ const at_top_setting_path = at_setting_path + "top"
 const at_bottom_setting_path = at_setting_path + "bottom"
 
 static var history_container: HistoryContainer
+static func add_history_log(args: Array):
+	history_container.add_history_log.emit(args)
 
 static var default_markup_setting: String:
 	set (value):
