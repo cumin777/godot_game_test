@@ -2,15 +2,15 @@
 extends ProcentControl
 class_name NotificationPanel
 
-@export var notification_label : AdvancedTextLabel = null
+@export var notification_label: AdvancedTextLabel
 
 @export_subgroup("Time")
-@export var timer : Timer = null
+@export var timer: Timer
 @export var default_notification_time := 0.5
 
-var markup : TextParser
+var markup: TextParser
 
-signal notif_ready
+signal notify_ready
 
 func _ready():
 	markup = load(VisualNovelKit.default_markup_setting)
@@ -20,7 +20,7 @@ func _ready():
 
 	if !Engine.is_editor_hint():
 		Rakugo.add_custom_regex("notification",
-			"^notif( +({NUMERIC}) *)? *: *({STRING})$")
+			"^notify( +({NUMERIC}) *)? *: *({STRING})$")
 		Rakugo.sg_custom_regex.connect(_on_custom_regex)
 
 func _on_custom_regex(key:String, result:RegExMatch):
@@ -28,13 +28,13 @@ func _on_custom_regex(key:String, result:RegExMatch):
 		"notification":
 			var text := result.get_string(3)
 			text = Rakugo.parser.treat_string(text)
-			notification_label._text = text
+			notification_label.advanced_text = text
 			var time := default_notification_time
 			if result.get_string(2):
 				time = float(result.get_string(2))
 			
 			if !visible: show()
-			notif_ready.emit()
+			notify_ready.emit()
 			
 			timer.start(time)
 			await timer.timeout

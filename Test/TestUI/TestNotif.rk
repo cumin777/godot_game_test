@@ -1,5 +1,5 @@
 "start"
-notif: "some notification"
+notify: "some notification"
 "step"
-notif 0.3: "some shorter time notification"
+notify 0.3: "some shorter time notification"
 "end"
