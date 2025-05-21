@@ -1,5 +1,6 @@
 @tool
 class_name HistoryLog
-extends SayPanel
+extends DialoguePanel
 
-@export var icon: FontIcon = null
+@export var icon: FontIcon
+@export var answer_label: AdvancedTextLabel
