@@ -1,8 +1,6 @@
 @tool
 extends DialoguePanel
 
-# @export var next_btn: AdvancedTextButton
-
 var history_log := []
 
 func _ready():
@@ -10,7 +8,7 @@ func _ready():
 	super._ready()
 	Rakugo.sg_say.connect(set_labels)
 
-func _on_say(character:Dictionary, text:String):
+func _on_say(character: Dictionary, text: String):
 	set_labels(character, text)
 	history_log = ["say", character, text]
 
