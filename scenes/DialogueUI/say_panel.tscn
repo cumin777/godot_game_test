@@ -8,9 +8,10 @@
 
 [node name="SayPanel" type="PanelContainer" node_paths=PackedStringArray("character_name_label", "dialogue_label")]
 self_modulate = Color(1, 1, 1, 0.5)
-custom_minimum_size = Vector2(1280, 180)
+custom_minimum_size = Vector2(1280, 85)
 offset_right = 1280.0
-offset_bottom = 180.0
+offset_bottom = 85.0
+size_flags_horizontal = 3
 script = ExtResource("1_sqegj")
 character_name_label = NodePath("VBoxContainer/SpeakerLabel")
 dialogue_label = NodePath("VBoxContainer/DialogueLabel")

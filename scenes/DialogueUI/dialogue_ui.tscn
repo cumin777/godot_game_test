@@ -46,4 +46,5 @@ root = NodePath("../../..")
 
 [node name="SayPanel" parent="VBoxContainer" node_paths=PackedStringArray("root") instance=ExtResource("4_2fi1k")]
 layout_mode = 2
+size_flags_vertical = 3
 root = NodePath("../..")

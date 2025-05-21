@@ -2,7 +2,7 @@
 class_name AskPopup
 extends DialoguePanel
 
-@export var line_edit : LineEdit
+@export var line_edit: LineEdit
 
 var history_log := []
 
@@ -11,7 +11,7 @@ func _ready():
 	super._ready()
 	Rakugo.sg_ask.connect(_on_ask)
 
-func _on_ask(character:Dictionary, question:String, default_answer:String):
+func _on_ask(character: Dictionary, question: String, default_answer: String):
 	set_labels(character, question)
 	line_edit.placeholder_text = default_answer
 	history_log = ["ask", character, question, default_answer]
