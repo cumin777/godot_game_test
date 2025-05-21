@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp3rgqaehb3xu"]
 
-[ext_resource type="Script" uid="uid://dikjuj0xj1hyw" path="res://scenes/OptionsMenu/Input/InputOptionsMenu.gd" id="1"]
+[ext_resource type="Script" path="res://scenes/OptionsMenu/Input/InputOptionsMenu.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://beg4vmqhsx6ak" path="res://icon.svg" id="2_2vovj"]
-[ext_resource type="Script" uid="uid://hy3hidts0w6p" path="res://scenes/OptionsMenu/Input/Sprite2D.gd" id="3_7dtrp"]
-[ext_resource type="Script" uid="uid://rd7ac1vg0ycb" path="res://scenes/OptionsMenu/Input/KeyAssignmentDialog.gd" id="3_wsh2h"]
+[ext_resource type="Script" path="res://scenes/OptionsMenu/Input/Sprite2D.gd" id="3_7dtrp"]
+[ext_resource type="Script" path="res://scenes/OptionsMenu/Input/KeyAssignmentDialog.gd" id="3_wsh2h"]
 
 [node name="Controls" type="Control"]
 layout_mode = 3
