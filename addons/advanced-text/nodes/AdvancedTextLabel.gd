@@ -31,13 +31,15 @@ signal custom_link(url:String)
 ## This will override default font theme settings
 @export var font_settings: LabelSettings:
 	set(value):
-		font_settings = value
 		
-		if font_settings:
+		if value:
+			font_settings = value
 			font_settings_update()
 			font_settings.changed.connect(font_settings_update)
 		
 		else:
+			font_settings.changed.disconnect(font_settings_update)
+			font_settings = null
 			var constants := [
 				&"outline_size", &"shadow_outline_size",
 				&"shadow_offset_x", &"shadow_offset_y"
@@ -174,6 +176,6 @@ func font_settings_update():
 
 	for font in font_names:
 		font += "_font"
-		add_theme_font_override(font, f_font)
+		if f_font: add_theme_font_override(font, f_font)
 		font += "_size"
 		add_theme_font_size_override(font, f_size)
