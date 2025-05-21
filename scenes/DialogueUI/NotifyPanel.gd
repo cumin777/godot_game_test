@@ -39,8 +39,6 @@ func _on_custom_regex(key:String, result:RegExMatch):
 			timer.start(time)
 			await timer.timeout
 			hide()
-			var history_log := ["notify", text]
-			VisualNovelKit.add_history_log(history_log)
 
 
 
