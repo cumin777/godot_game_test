@@ -19,6 +19,7 @@ rakugo/save_folder="user://saves"
 [application]
 
 config/name="Visual Novel Kit"
+config/version="1.0.0"
 run/main_scene="res://scenes/Bootstrap/bootstrap.tscn"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.svg"
@@ -41,11 +42,10 @@ ProjectMusicController="*res://addons/rakugo_game_template/Autoloads/ProjectMusi
 UISoundManager="*res://addons/rakugo_game_template/Autoloads/UISoundManager/UISoundManager.tscn"
 Transitions="*res://addons/rakugo_game_template/Autoloads/Transitions/transitions.tscn"
 Rakugo="*res://addons/Rakugo/Rakugo.gd"
-RKSShow="*res://addons/visualnovelkit/rks_extensions/rks_show.gd"
-RKSAnim="*res://addons/visualnovelkit/rks_extensions/rks_anim.gd"
-IconsFonts="*res://addons/icons-fonts/icons_fonts/IconsFonts.gd"
 AdvancedText="*res://addons/advanced-text/AdvancedText.gd"
 HintPopup="*res://addons/advanced-text/HintPopup/hint_popup.tscn"
+IconsFonts="*res://addons/icons-fonts/icons_fonts/IconsFonts.gd"
+RKSShow="*res://addons/visualnovelkit/rks_extensions/rks_show.gd"
 
 [display]
 
@@ -64,7 +64,6 @@ enabled=PackedStringArray("res://addons/Rakugo/plugin.cfg", "res://addons/advanc
 
 [gui]
 
-theme/custom_font="res://addons/advanced-text/font/DejaVuSans.ttf"
 common/drop_mouse_on_gui_input_disabled=true
 
 [input]
