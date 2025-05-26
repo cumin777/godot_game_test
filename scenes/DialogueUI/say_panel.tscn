@@ -59,6 +59,7 @@ custom_minimum_size = Vector2(30, 40)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_force_pass_scroll_events = false
+fit_content = true
 scroll_active = false
 script = ExtResource("2_xgq2h")
 advanced_text = "# Speaker [mi:chat] :speech_balloon:
@@ -81,6 +82,7 @@ theme_override_font_sizes/italics_font_size = 22
 theme_override_font_sizes/mono_font_size = 22
 theme_override_font_sizes/normal_font_size = 22
 theme_override_font_sizes/bold_font_size = 22
+fit_content = true
 script = ExtResource("2_xgq2h")
 advanced_text = "@rainbow 0.2,10,20 {Speaker say something gay} [mi:chat] :speech_balloon:
 "
