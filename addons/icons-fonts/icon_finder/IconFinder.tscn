@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bni8w3a3pcbwn"]
 
-[ext_resource type="Script" path="res://addons/icons-fonts/icon_finder/icon_finder.gd" id="1_nv02s"]
+[ext_resource type="Script" uid="uid://cpb62o6r46m4s" path="res://addons/icons-fonts/icon_finder/icon_finder.gd" id="1_nv02s"]
 [ext_resource type="FontFile" uid="uid://bbfeoo2kuf30n" path="res://addons/icons-fonts/icons_fonts/MaterialIcons/material_design_icons.ttf" id="2_8e28h"]
-[ext_resource type="Script" path="res://addons/icons-fonts/icon_finder/IconsFontsRender.gd" id="3_hobrt"]
+[ext_resource type="Script" uid="uid://bkkw6d8sxmma8" path="res://addons/icons-fonts/icon_finder/IconsFontsRender.gd" id="3_hobrt"]
 [ext_resource type="FontFile" uid="uid://be10y8fgoiayy" path="res://addons/icons-fonts/icons_fonts/emojis/NotoColorEmoji.ttf" id="3_sggto"]
 
 [node name="IconFinder" type="Panel" node_paths=PackedStringArray("icons_renderers", "icons_renderers_tabs", "notify_label", "search_line_edit", "size_slider", "size_label", "scroll_container", "fonts_dropdown")]

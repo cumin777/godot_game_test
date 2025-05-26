@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://d1qw62h10t5vw"]
 
-[ext_resource type="Script" path="res://addons/advanced-text/HintPopup/hint_popup.gd" id="1_6xidp"]
-[ext_resource type="Script" path="res://addons/advanced-text/nodes/AdvancedTextLabel.gd" id="1_q40ii"]
-[ext_resource type="Script" path="res://addons/advanced-text/parsers/MarkdownParser.gd" id="3_lk2s6"]
+[ext_resource type="Script" uid="uid://mvv685f6x4by" path="res://addons/advanced-text/HintPopup/hint_popup.gd" id="1_6xidp"]
+[ext_resource type="Script" uid="uid://cgbqtpdgyaxq3" path="res://addons/advanced-text/nodes/AdvancedTextLabel.gd" id="1_q40ii"]
+[ext_resource type="Script" uid="uid://dpoos1ol2em05" path="res://addons/advanced-text/parsers/MarkdownParser.gd" id="3_lk2s6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnsm3"]
 bg_color = Color(0, 0, 0, 0.9)
