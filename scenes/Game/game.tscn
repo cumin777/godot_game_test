@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bebpki10lel8e" path="res://scenes/Game/game.gd" id="1_o2piy"]
 [ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://scenes/PauseMenu/PauseMenu.tscn" id="2_hcope"]
 [ext_resource type="PackedScene" uid="uid://cp3p3kqcjh0me" path="res://scenes/EndMenu/EndMenu.tscn" id="3_yfekm"]
-[ext_resource type="PackedScene" uid="uid://cnsu6sfdku23l" path="res://scenes/DialogueUI/dialogue_ui.tscn" id="4_bfxw3"]
+[ext_resource type="PackedScene" uid="uid://cnsu6sfdku23l" path="res://scenes/DialogueUI/dialogue_ui.tscn" id="4_7dfdq"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_o2piy")
@@ -18,6 +18,7 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="DialogueUI" parent="GUI" instance=ExtResource("4_bfxw3")]
+[node name="DialogueUI" parent="GUI" instance=ExtResource("4_7dfdq")]
+unique_name_in_owner = true
 
 [connection signal="ask_to_save" from="GUI/PauseMenu" to="." method="_on_pause_menu_ask_to_save"]

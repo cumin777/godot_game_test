@@ -1,11 +1,11 @@
 [gd_scene load_steps=28 format=3 uid="uid://casymgu2sqx81"]
 
 [ext_resource type="FontFile" uid="uid://be10y8fgoiayy" path="res://addons/icons-fonts/icons_fonts/emojis/NotoColorEmoji.ttf" id="1_lglyu"]
-[ext_resource type="Script" uid="uid://sfoyl3fbn8so" path="res://addons/icons-fonts/nodes/FontIcon.gd" id="2_fd237"]
-[ext_resource type="Script" uid="uid://diswvoymuh7fq" path="res://addons/icons-fonts/resources/FontIconSetting.gd" id="3_jajcj"]
-[ext_resource type="Script" uid="uid://pwyh8365is28" path="res://addons/icons-fonts/nodes/FontIconButton.gd" id="4_5ca3b"]
-[ext_resource type="Script" uid="uid://c4n2aki4724e4" path="res://addons/icons-fonts/nodes/FontIconCheckButton.gd" id="5_qfxwr"]
-[ext_resource type="Script" uid="uid://n1h4deaety5d" path="res://addons/icons-fonts/examples/rich_text_label_with_icons.gd" id="6_3361y"]
+[ext_resource type="Script" path="res://addons/icons-fonts/nodes/FontIcon.gd" id="2_fd237"]
+[ext_resource type="Script" path="res://addons/icons-fonts/resources/FontIconSetting.gd" id="3_jajcj"]
+[ext_resource type="Script" path="res://addons/icons-fonts/nodes/FontIconButton.gd" id="4_5ca3b"]
+[ext_resource type="Script" path="res://addons/icons-fonts/nodes/FontIconCheckButton.gd" id="5_qfxwr"]
+[ext_resource type="Script" path="res://addons/icons-fonts/examples/rich_text_label_with_icons.gd" id="6_3361y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fw4y0"]
 font = ExtResource("1_lglyu")
