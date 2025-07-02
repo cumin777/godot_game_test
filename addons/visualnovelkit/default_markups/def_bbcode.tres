@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ExtendedBBCodeParser" load_steps=6 format=3 uid="uid://bdvu722g6s453"]
 
-[ext_resource type="Script" uid="uid://bnyoqsv4amdy0" path="res://addons/advanced-text/parsers/ExtendedBBCodeParser.gd" id="1_2fnoq"]
+[ext_resource type="Script" uid="uid://bqlaav0unm6fo" path="res://addons/advanced-text/parsers/ExtendedBBCodeParser.gd" id="1_2fnoq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ill3"]
 font_size = 22
