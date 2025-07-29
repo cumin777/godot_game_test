@@ -10,12 +10,12 @@ func _enter_tree():
 	VisualNovelKit.at_top = 25
 	VisualNovelKit.at_bottom = 75
 
-	for ext in VisualNovelKit.rks_extesions:
-		var ext_script : String = VisualNovelKit.rks_extesions[ext]
+	for ext in VisualNovelKit.rks_extensions:
+		var ext_script: String = VisualNovelKit.rks_extensions[ext]
 		add_autoload_singleton(ext, ext_script)
 
 func _exit_tree():
-	for ext in VisualNovelKit.rks_extesions:
+	for ext in VisualNovelKit.rks_extensions:
 		remove_autoload_singleton(ext)
 
 	var settings := [
@@ -28,5 +28,3 @@ func _exit_tree():
 	]
 	for setting in settings:
 		ProjectSettings.set_setting(setting, null)
-
-
