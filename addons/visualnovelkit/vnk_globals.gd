@@ -24,37 +24,25 @@ static func add_history_log(args: Array):
 	history_container.add_history_log.emit(args)
 
 static var default_markup_setting: String:
-	set(value):
-		ProjectSettings.set_setting(default_markup_setting_path, value)
-	get:
-		return ProjectSettings.get_setting(default_markup_setting_path)
+	set(value): ProjectSettings.set_setting(default_markup_setting_path, value)
+	get: return ProjectSettings.get_setting(default_markup_setting_path)
 
 static var at_center: Vector2:
-	set(value):
-		ProjectSettings.set_setting(at_center_setting_path, value)
-	get:
-		return ProjectSettings.get_setting(at_center_setting_path)
+	set(value): ProjectSettings.set_setting(at_center_setting_path, value)
+	get: return ProjectSettings.get_setting(at_center_setting_path)
 
 static var at_left: float:
-	set(value):
-		ProjectSettings.set_setting(at_left_setting_path, value)
-	get:
-		return ProjectSettings.get_setting(at_left_setting_path)
+	set(value): ProjectSettings.set_setting(at_left_setting_path, value)
+	get: return ProjectSettings.get_setting(at_left_setting_path)
 
 static var at_right: float:
-	set(value):
-		ProjectSettings.set_setting(at_right_setting_path, value)
-	get:
-		return ProjectSettings.get_setting(at_right_setting_path)
+	set(value): ProjectSettings.set_setting(at_right_setting_path, value)
+	get: return ProjectSettings.get_setting(at_right_setting_path)
 
 static var at_top: float:
-	set(value):
-		ProjectSettings.set_setting(at_top_setting_path, value)
-	get:
-		return ProjectSettings.get_setting(at_top_setting_path)
+	set(value): ProjectSettings.set_setting(at_top_setting_path, value)
+	get: return ProjectSettings.get_setting(at_top_setting_path)
 
 static var at_bottom: float:
-	set(value):
-		ProjectSettings.set_setting(at_bottom_setting_path, value)
-	get:
-		return ProjectSettings.get_setting(at_bottom_setting_path)
+	set(value): ProjectSettings.set_setting(at_bottom_setting_path, value)
+	get: return ProjectSettings.get_setting(at_bottom_setting_path)
