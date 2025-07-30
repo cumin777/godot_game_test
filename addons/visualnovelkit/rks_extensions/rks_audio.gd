@@ -8,7 +8,7 @@ const SeekAudio := "seek audio"
 const StopAudio := "stop audio"
 
 const regex := {
-	PlayAudio: "play +({NAME})( +{NAME})?( +{NUMERIC})?",
+	PlayAudio: "play +({NAME})( +{NUMERIC})?",
 	SeekAudio: "seek +({NAME})",
 	StopAudio: "stop +({NAME})",
 }
@@ -31,21 +31,15 @@ func _on_custom_regex(key: String, result: RegExMatch):
 
 	match key:
 		PlayAudio:
-			var audio_name := result.get_string(2).strip_edges()
-			if audio_name.is_empty():
-				node.play()
-				return
-
-			var str_speed := result.get_string(3).strip_edges()
+			var str_speed := result.get_string(2).strip_edges()
 			var speed := float(str_speed)
 			if str_speed.is_empty(): speed = 1
 			
-			if speed == 0:
-				push_error("you try to play audio with 0 speed")
+			if speed <= 0:
+				push_error("you try to play audio with speed <= 0")
 				return
 
-			if speed > 0: node.play(audio_name, speed)
-			elif speed < 0: node.play(audio_name, speed, true)
+			node.play(speed)
 
 		SeekAudio: node.seek()
 		StopAudio: node.stop()
