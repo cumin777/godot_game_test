@@ -2,19 +2,19 @@ extends RKSExtension
 
 var vnk = VisualNovelKit
 
-const Anim := "anim"
-const PlayAnim := "play anim"
-const PauseAnim := "pause anim"
-const StopAnim := "stop anim"
+const Audio := "audio"
+const PlayAudio := "play audio"
+const SeekAudio := "seek audio"
+const StopAudio := "stop audio"
 
 const regex := {
-	PlayAnim: "play +({NAME})( +{NAME})?( +{NUMERIC})?",
-	PauseAnim: "pause +({NAME})",
-	StopAnim: "stop +({NAME})",
+	PlayAudio: "play +({NAME})( +{NAME})?( +{NUMERIC})?",
+	SeekAudio: "seek +({NAME})",
+	StopAudio: "stop +({NAME})",
 }
 
 func _group_name() -> StringName:
-	return Anim
+	return Audio
 
 func _ready():
 	for key in regex: Rakugo.add_custom_regex(key, regex[key])
@@ -28,11 +28,11 @@ func _on_custom_regex(key: String, result: RegExMatch):
 	
 	var node := rk_get_node(result.get_string(1))
 	if !node: return
-	
+
 	match key:
-		PlayAnim:
-			var anim_name := result.get_string(2).strip_edges()
-			if anim_name.is_empty():
+		PlayAudio:
+			var audio_name := result.get_string(2).strip_edges()
+			if audio_name.is_empty():
 				node.play()
 				return
 
@@ -41,11 +41,11 @@ func _on_custom_regex(key: String, result: RegExMatch):
 			if str_speed.is_empty(): speed = 1
 			
 			if speed == 0:
-				push_error("you try to play animation with 0 speed")
+				push_error("you try to play audio with 0 speed")
 				return
 
-			if speed > 0: node.play(anim_name, speed)
-			elif speed < 0: node.play(anim_name, speed, true)
+			if speed > 0: node.play(audio_name, speed)
+			elif speed < 0: node.play(audio_name, speed, true)
 
-		PauseAnim: node.pause()
-		StopAnim: node.stop()
+		SeekAudio: node.seek()
+		StopAudio: node.stop()

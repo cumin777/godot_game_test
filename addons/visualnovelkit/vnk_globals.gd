@@ -10,6 +10,7 @@ const rks_extension_dir := "res://addons/visualnovelkit/rks_extensions"
 const rks_extensions := {
 	RKSShow = rks_extension_dir + "/rks_show.gd",
 	RKSAnim = rks_extension_dir + "/rks_anim.gd",
+	RKSAudio = rks_extension_dir + "/rks_audio.gd"
 }
 
 const at_setting_path = setting_path + "/at_predefind/"
