@@ -8,7 +8,7 @@ const PauseAnim := "pause anim"
 const StopAnim := "stop anim"
 
 const regex := {
-	PlayAnim: "play +({NAME}) +({NAME})( +{NUMERIC})?",
+	PlayAnim: "play +({NAME})( +{NAME})?( +{NUMERIC})?",
 	PauseAnim: "pause +({NAME})",
 	StopAnim: "stop +({NAME})",
 }
@@ -26,14 +26,19 @@ func _on_custom_regex(key: String, result: RegExMatch):
 		push_error(err_mess_01 % [key, group_name])
 		return
 	
+	var node := rk_get_node(result.get_string(1))
+	if !node: return
+	
 	match key:
 		PlayAnim:
-			var node := rk_get_node(result.get_string(1))
-			if !node: return
+			var anim_name := result.get_string(2).strip_edges()
+			if anim_name.is_empty():
+				node.play()
+				return
 
-			var anim_name := result.get_string(2)
-			var speed := float(result.get_string(3))
-			if result.get_string(3).is_empty(): speed = 1
+			var str_speed := result.get_string(3).strip_edges()
+			var speed := float(str_speed)
+			if str_speed.is_empty(): speed = 1
 			
 			if speed == 0:
 				push_error("you try to play animation with 0 speed")
@@ -42,12 +47,5 @@ func _on_custom_regex(key: String, result: RegExMatch):
 			if speed > 0: node.play(anim_name, speed)
 			elif speed < 0: node.play(anim_name, speed, true)
 
-		PauseAnim:
-			var node := rk_get_node(result.get_string(1))
-			if !node: return
-			node.pause()
-		
-		StopAnim:
-			var node := rk_get_node(result.get_string(1))
-			if !node: return
-			node.stop()
+		PauseAnim: node.pause()
+		StopAnim: node.stop()

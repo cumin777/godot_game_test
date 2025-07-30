@@ -8,7 +8,7 @@ const SeekAudio := "seek audio"
 const StopAudio := "stop audio"
 
 const regex := {
-	PlayAudio: "play +({NAME}) +({NAME})( +{NUMERIC})?",
+	PlayAudio: "play +({NAME})( +{NAME})?( +{NUMERIC})?",
 	SeekAudio: "seek +({NAME})",
 	StopAudio: "stop +({NAME})",
 }
@@ -26,14 +26,19 @@ func _on_custom_regex(key: String, result: RegExMatch):
 		push_error(err_mess_01 % [key, group_name])
 		return
 	
+	var node := rk_get_node(result.get_string(1))
+	if !node: return
+
 	match key:
 		PlayAudio:
-			var node := rk_get_node(result.get_string(1))
-			if !node: return
+			var audio_name := result.get_string(2).strip_edges()
+			if audio_name.is_empty():
+				node.play()
+				return
 
-			var audio_name := result.get_string(2)
-			var speed := float(result.get_string(3))
-			if result.get_string(3).is_empty(): speed = 1
+			var str_speed := result.get_string(3).strip_edges()
+			var speed := float(str_speed)
+			if str_speed.is_empty(): speed = 1
 			
 			if speed == 0:
 				push_error("you try to play audio with 0 speed")
@@ -42,12 +47,5 @@ func _on_custom_regex(key: String, result: RegExMatch):
 			if speed > 0: node.play(audio_name, speed)
 			elif speed < 0: node.play(audio_name, speed, true)
 
-		SeekAudio:
-			var node := rk_get_node(result.get_string(1))
-			if !node: return
-			node.seek()
-		
-		StopAudio:
-			var node := rk_get_node(result.get_string(1))
-			if !node: return
-			node.stop()
+		SeekAudio: node.seek()
+		StopAudio: node.stop()
