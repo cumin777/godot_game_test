@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdwvtbtwmrqbn"]
+[gd_scene load_steps=16 format=3 uid="uid://cdwvtbtwmrqbn"]
 
 [ext_resource type="Script" uid="uid://dbxrmlo8ocuvk" path="res://scenes/PauseMenu/PauseMenu.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://dnlyj8r7kuvas" path="res://scenes/RGT_Dialogs/RGT_ConfirmationDialog.tscn" id="2_ovglx"]
@@ -6,8 +6,40 @@
 [ext_resource type="PackedScene" uid="uid://c2lv8pxfcnayg" path="res://scenes/PauseMenu/history_log.tscn" id="4_8bpk1"]
 [ext_resource type="PackedScene" uid="uid://djnvp4x64ukay" path="res://scenes/OptionsMenu/OptionsContainer.tscn" id="4_pyl8d"]
 [ext_resource type="PackedScene" uid="uid://cy4anjja2feca" path="res://scenes/RGT_Dialogs/RGT_YesNoDialog.tscn" id="4_rf7yh"]
+[ext_resource type="Script" uid="uid://dqb2gd2uhk4n7" path="res://addons/rakugo-nodes/nodes/ButtonContainer.gd" id="5_b55gy"]
+[ext_resource type="Script" uid="uid://cgbqtpdgyaxq3" path="res://addons/advanced-text/nodes/AdvancedTextLabel.gd" id="6_28lsa"]
+[ext_resource type="Resource" uid="uid://6ioam3qiqsqa" path="res://addons/visualnovelkit/default_markups/def_markdown.tres" id="7_yhk0i"]
+[ext_resource type="Script" uid="uid://pwyh8365is28" path="res://addons/icons-fonts/nodes/FontIconButton.gd" id="8_kd1vf"]
+[ext_resource type="Script" uid="uid://diswvoymuh7fq" path="res://addons/icons-fonts/resources/FontIconSetting.gd" id="9_phohy"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_8bpk1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjhlx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_elhhi"]
+script = ExtResource("9_phohy")
+icon_font = "MaterialIcons"
+icon_name = "delete-empty"
+icon_size = 64
+icon_color = Color(1, 0, 0.054902, 1)
+outline_color = Color(1, 1, 1, 1)
+outline_size = 0
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
+metadata/_custom_type_script = "uid://diswvoymuh7fq"
+
+[sub_resource type="LabelSettings" id="LabelSettings_fq7st"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -122,15 +154,15 @@ text = "Exit Game"
 
 [node name="TabContainer" type="TabContainer" parent="BoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-current_tab = 0
+current_tab = 2
 clip_tabs = false
 tabs_visible = false
 
 [node name="OptionsContainer" type="MarginContainer" parent="BoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
@@ -183,6 +215,64 @@ theme_override_constants/separation = 8
 script = ExtResource("3_f5w72")
 history_log_scene = ExtResource("4_8bpk1")
 scroll = NodePath("..")
+
+[node name="SavesScrollContainer" type="ScrollContainer" parent="BoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="GridContainer" type="GridContainer" parent="BoxContainer/TabContainer/SavesScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SaveSlot" type="Panel" parent="BoxContainer/TabContainer/SavesScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/TabContainer/SavesScrollContainer/GridContainer/SaveSlot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonContainer" type="PanelContainer" parent="BoxContainer/TabContainer/SavesScrollContainer/GridContainer/SaveSlot/BoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_pjhlx")
+script = ExtResource("5_b55gy")
+metadata/_custom_type_script = "uid://dqb2gd2uhk4n7"
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer/TabContainer/SavesScrollContainer/GridContainer/SaveSlot/BoxContainer/ButtonContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/TabContainer/SavesScrollContainer/GridContainer/SaveSlot/BoxContainer/ButtonContainer/BoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="SaveData" type="RichTextLabel" parent="BoxContainer/TabContainer/SavesScrollContainer/GridContainer/SaveSlot/BoxContainer/ButtonContainer/BoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("6_28lsa")
+advanced_text = "# Save Number/Name
+## Save.Date
+### Other data
+"
+parser = ExtResource("7_yhk0i")
+metadata/_custom_type_script = "uid://cgbqtpdgyaxq3"
+
+[node name="DeleteButton" type="PanelContainer" parent="BoxContainer/TabContainer/SavesScrollContainer/GridContainer/SaveSlot/BoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pjhlx")
+script = ExtResource("8_kd1vf")
+layout_order = "Icon"
+icon_settings = SubResource("Resource_elhhi")
+label_settings = SubResource("LabelSettings_fq7st")
+metadata/_custom_type_script = "uid://pwyh8365is28"
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 unique_name_in_owner = true
