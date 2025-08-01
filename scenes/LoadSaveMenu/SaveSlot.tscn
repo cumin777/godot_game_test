@@ -58,6 +58,7 @@ clip_tabs = false
 tabs_visible = false
 
 [node name="ExistingSave" type="BoxContainer" parent="TabContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
@@ -74,10 +75,12 @@ metadata/_custom_type_script = "uid://dqb2gd2uhk4n7"
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="TabContainer/ExistingSave/ButtonContainer/BoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="SaveData" type="RichTextLabel" parent="TabContainer/ExistingSave/ButtonContainer/BoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -90,6 +93,7 @@ parser = ExtResource("3_67nf4")
 metadata/_custom_type_script = "uid://cgbqtpdgyaxq3"
 
 [node name="DeleteButton" type="PanelContainer" parent="TabContainer/ExistingSave"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pjhlx")
 script = ExtResource("4_jpqxr")
@@ -99,6 +103,7 @@ label_settings = SubResource("LabelSettings_fq7st")
 metadata/_custom_type_script = "uid://pwyh8365is28"
 
 [node name="NewSave" type="PanelContainer" parent="TabContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
