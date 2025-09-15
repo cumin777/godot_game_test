@@ -1,22 +1,47 @@
-# ![Logo](WindowIcon.png) Rakugo Game Template
+# ![Logo](WindowIcon.png) Visual Novel Kit
 
 ![MIT License](https://img.shields.io/static/v1.svg?label=📜%20License&message=MIT&color=informational)
 [![Join the Discord channel](https://img.shields.io/static/v1.svg?label=Join%20our%20Discord%20channel&message=🎆&color=7289DA&logo=discord&logoColor=white&labelColor=2C2F33)](https://discord.gg/K9gvjdg)
 
-Inspired by the [GGT](https://github.com/crystal-bit/godot-game-template/tree/main) of [Crystal-bit](https://github.com/crystal-bit) and the [GGT](https://github.com/Maaack/Godot-Game-Template) of [Maaack](https://github.com/Maaack/Godot-Game-Template). This [Godot](https://godotengine.org)'s project aiming to provide a way to make games easily.
+***⚠️ Project is Stable, but still WIP, as it missing few features! ⚠️***
 
-## Feature
-* **Main Menu** with Play, Options, Credits and Exit buttons
-* **Options Menu** to set audio, resolutions, and inputs
-* **Loading Screen** between each loads
-* **Transitions** between each scenes
-* **Game Template Scene** with a Pause Menu and a End Menu (Win/Loose)
-* **Pause Menu** with Resume, Restart, Options, Main Menu, and Exit Buttons
-* **End Menu** with Restart, Main Menu and Exit Buttons
-* **Scene Loader** use it to load and change scene easily
-* **UI Sounds Manager** handle the UI sounds in one place
+Inspired by the [Ren'Py]() and powered by [Rakugo Project](). 
+This [Godot](https://godotengine.org)'s project aiming to provide a way to make visual novels games easily.
 
-![Screenshot](Screenshot.png)
+*Screenshot from "The Question" example* 
+
+![Screenshot](https://github.com/rakugoteam/The-Question/blob/2.0/Screenshot.png?raw=true)
+
+## Features
+
+### UI game template for Visual Novel a'la Ren'Py
+
+- Main Menu
+- Pause Menu
+- Options
+- History
+- Save & Load (WIP)
+
+#### Those are modified from RGT
+- Main Menu
+- Pause Menu
+- Options
+
+#### History
+
+History logs Say, Ask, Menu and Notify statements.
+
+You can easy add your own stuff to history like this:
+`VisualNovelKit.add_history_log(["tag", any_data])`
+Then in *scenes/PauseMenu/history_log_container.gd* you add func to handel this tag and data.
+
+### Scripting dialogue langue inspired by Ren'Py
+- [Rakugo Dialogue Script core](https://rakugoteam.github.io/rakugo-docs/2.2/)
+- Notification support
+- Node translations support 
+- Animations support
+- Audio support
+- Thanks to AdvancedText you can use Markdown, Ren'Py Markup or BBCode in dialogues and menus
 
 [Installation](#installation) -
 [What do you need to now](#what-do-you-need-to-know) -
@@ -27,52 +52,110 @@ Inspired by the [GGT](https://github.com/crystal-bit/godot-game-template/tree/ma
 
 ### If you want to create a new project with it
 
-1. Download the last [release]()
-1. Unzip the archive
-1. Import the project from the [Godot](https://godotengine.org) Project Manager
+For now just download source code.
+Unpack it, than import and start to editing it in Godot Engine. 
 
 ### If you have already a project
 
-1. Download the last [release]()
-1. Unzip the archive
-1. Copy the addons/RakugoGameTemplate folder in your project folder
-1. In the scenes folder, copy what you are interested in
-1. Enable the plugin in the Project Settings (Plugins tab)
-1. Reload the project
-1. Eventualy set some values in the ProjectSettings (see bellow)
+For now just download source code.
+Unpack it to your project.
+If have your own UI that you want you use then you only need *addons* dir. 
 
 ## What do you need to know
 
+### *"The Question"* Demo
+
+[*"The Question"*](https://github.com/rakugoteam/The-Question) is Demo/Example project using **VisualNovelKit**.
+
+It is port of **Ren'Py** Demo/Example project *"The Question"* to **VisualNovelKit**. 
+
+### Editing UI
+
+All UI scenes and there code it in *scenes* dir.
+
+### Scripting dialogue langue
+
+[Rakugo Dialogue Script core](https://rakugoteam.github.io/rakugo-docs/2.2/)
+
+#### Notification support
+
+You can display notification in UI:
+```
+notify "notification text" # display by 0.5s
+notify 1 "long notification text" # display by 1s
+```
+
+#### Node translations
+Add any **Node2D**, **Control** and **Node3D**
+to `show` group, then you can in rks script:
+```
+hide NodeName
+show NodeName
+
+# `at`, `scale`, `rotate` must be used with `show`
+
+# `at` move node to new position 
+at x, y, z # Z only if node is 3DNode
+# `at` only for 2DNode/Control node
+at x%, y% # procent of screen size
+at top center # of screen, also: `left`, `right` and `bottom`
+
+scale x, y, z # Z only if node is 3DNode
+scale 2 # will scale Node to 2 in all axis
+
+rotate angle # only for 2DNode/Control node
+# rotate angle axis - only for 3DNode
+rotate 45 forward
+```
+
+#### Animations support
+Add any **AnimationPlayer** nodes to group `anim`,
+then you can in rks script:
+```
+play AnimationPlayer animation_name speed
+pause AnimationPlayer
+stop AnimationPlayer
+```
+
+#### Audio support
+Add any **AudioStreamPlayer** nodes to `audio` group,
+then you can in rks script:
+```
+play AudioStreamPlayer speed
+seek AudioStreamPlayer from
+stop AudioStreamPlayer
+```
+
+### Included Addons
+
+- [Rakugo Game Template (RGT) modified a'la Ren'Py](https://github.com/rakugoteam/Rakugo-Game-Template)
+- [Rakugo Dialogue System (RDS)](https://github.com/rakugoteam/Rakugo-Dialogue-System) 
+- [Rakugo Regex Lab](https://github.com/rakugoteam/VisualNovelKit/tree/2.0/addons/rakugo_regex_lab)
+- [RakuScript_Color](https://github.com/rakugoteam/Rakugo-Dialogue-System/tree/main/addons/RakuScript_Color)
+- [Visual Novel extensions for RDS](https://github.com/rakugoteam/VisualNovelKit/tree/2.0/addons/visualnovelkit/rks_extensions)
+- [AdvancedText](https://github.com/rakugoteam/AdvancedText)
+- [Godot Font Icons](https://github.com/rakugoteam/Godot-Icons-Fonts)
+- [Rakugo Nodes](https://github.com/rakugoteam/Rakugo-Nodes)
+
 ### Project Settings
 
-In your Project Settings, enable "Advanced Settings". In Application/Addons/RakugoGameTemplate you can set some values.
-
-* **Loading Scene Path** is the path to the Loading Scene of your project. It is used by the SceneLoader when you change scene
-* **Main Menu Path** is the path to the Main Menu scene of your project. It is used when you return to the Main Menu from the Pause Menu
-* **First Game Scene Path** is the path to the First Game Scene of your project. It is used when you click on the play button in the Main Menu
+- [Rakugo Game Template Project Settings](https://github.com/rakugoteam/Rakugo-Game-Template?tab=readme-ov-file#project-settings)
+- `addons/rakugo/game_version` - version of your game - displayed at right bottom corner of MainMenu
+- `addons/rakugo/narrator_name` - name displayed if you type say statement with out character tag
+- `addons/rakugo/save_folder` - obsolete as it now use **SaveHelper** from **RGT**
+- `addons/rakugo/debug` - obsolete
+- **VisualNovelKit** class has const and static funcs that easy to access setting below 
+- `addons/visual_novel_kit/default_markup_setting` - path to default marku setting used by **DialogueUI**
+- `addons/visual_novel_kit/at_predefind/center` - default pos of screen center used by `at` in **Vector2%**
+- `addons/visual_novel_kit/at_predefind/left` - default pos of screen left used by `at` in **Vector2%**
+- `addons/visual_novel_kit/at_predefind/right` - default pos of screen right used by `at` in **Vector2%**
+- `addons/visual_novel_kit/at_predefind/top` - default pos of screen yop used by `at` in **Vector2%**
+- `addons/visual_novel_kit/at_predefind/bottom` - default pos of screen bottom used by `at` in **Vector2%**
 
 ### Autoloads
+- [Rakugo Game Template Autoloads](https://github.com/rakugoteam/Rakugo-Game-Template?tab=readme-ov-file#autoloads)
+- RKSShow, RKSAnim, RKSAudio - those expands RakuScript langue
 
-When you enabled the plugin it will add some autoloads
-
-* **SceneLoader** you can use it to load scene with the method *change_scene*(path_tscn:String, wait_after_load:bool = true). It will pause the tree, make a transition to the Loading Scene, before the end of the transition the tree is unpaused, then it load the wanted scene, after wait or not an action from the player, pause the tree again, a last transition to the desired scene and at the end after the transition is finished, unpause the tree.
-
-```gd
-const level_12 = "res://scenes/levels/level_12.tscn"
-...
-SceneLoader.change_scene(level_12)
-```
-
-* **Transitions** you can use it to make a transition with the method *transition*(transition_type, reverse:bool). transition_type are {Swipe,Square,Circle,Diamond,Line}. Transitions always works instead the tree is paused. It will not pause the tree for you, you should handle it.
-
-```gd
-get_tree().paused = true
-Transitions.transition(Transitions.transition_type.Square)
-await Transitions.animation_player.finished
-get_tree().pause = false
-```
-
-* **UISoundManager** you do not need to call him, it will do the work for you. The only thing to do is to open "res://addons/rakugo_game_template/Autoloads/UISoundManager/UISoundManager.tscn" and parametrize the values of the main node *UISoundManager*. *Audio Bus* is the name of the audio bus the AudioStreamPlayer will use to play the "bip bip boup" of your UI. The next both values are Array. They will be use to take sound inside them randomly except if you add only just one. The first Array is for *pressed* sounds and the second *hovered* ones.
 
 ## Infos
 
