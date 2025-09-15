@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdw1wg7t60csg"]
+[gd_scene load_steps=16 format=3 uid="uid://bdw1wg7t60csg"]
 
 [ext_resource type="Script" uid="uid://dqb2gd2uhk4n7" path="res://addons/rakugo-nodes/nodes/ButtonContainer.gd" id="1_vg8rx"]
 [ext_resource type="Script" uid="uid://vhc7ipgmfu21" path="res://scenes/LoadSaveMenu/SaveSlot.gd" id="1_xotb7"]
@@ -12,7 +12,7 @@
 [ext_resource type="FontFile" uid="uid://3spkwr34s2bq" path="res://addons/advanced-text/font/DejaVuSans-BoldOblique.ttf" id="9_ewbhv"]
 [ext_resource type="FontFile" uid="uid://be1m3xik5j81c" path="res://addons/advanced-text/font/DejaVuSans-Bold.ttf" id="10_k75rm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjhlx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xotb7"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -24,12 +24,12 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_64imm"]
+[sub_resource type="Resource" id="Resource_xotb7"]
 script = ExtResource("5_jgcao")
 icon_font = "MaterialIcons"
-icon_name = "image-outline"
-icon_size = 16
-icon_color = Color(1, 1, 1, 1)
+icon_name = "content-save-edit"
+icon_size = 64
+icon_color = Color(1, 0.458824, 0, 1)
 outline_color = Color(1, 1, 1, 1)
 outline_size = 0
 shadow_color = Color(1, 1, 1, 1)
@@ -37,6 +37,18 @@ shadow_size = 0
 shadow_offset = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fq7st"]
+
+[sub_resource type="Resource" id="Resource_64imm"]
+script = ExtResource("5_jgcao")
+icon_font = "MaterialIcons"
+icon_name = "delete-forever"
+icon_size = 64
+icon_color = Color(1, 0, 0, 1)
+outline_color = Color(1, 1, 1, 1)
+outline_size = 0
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
 
 [node name="SaveSlot" type="Panel"]
 custom_minimum_size = Vector2(0, 200)
@@ -67,7 +79,7 @@ metadata/_tab_index = 0
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_pjhlx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xotb7")
 script = ExtResource("1_vg8rx")
 metadata/_custom_type_script = "uid://dqb2gd2uhk4n7"
 
@@ -92,10 +104,20 @@ advanced_text = "# Save Number/Name
 parser = ExtResource("3_67nf4")
 metadata/_custom_type_script = "uid://cgbqtpdgyaxq3"
 
+[node name="OverrideButton" type="PanelContainer" parent="TabContainer/ExistingSave"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xotb7")
+script = ExtResource("4_jpqxr")
+layout_order = "Icon"
+icon_settings = SubResource("Resource_xotb7")
+label_settings = SubResource("LabelSettings_fq7st")
+metadata/_custom_type_script = "uid://pwyh8365is28"
+
 [node name="DeleteButton" type="PanelContainer" parent="TabContainer/ExistingSave"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pjhlx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xotb7")
 script = ExtResource("4_jpqxr")
 layout_order = "Icon"
 icon_settings = SubResource("Resource_64imm")
@@ -107,7 +129,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pjhlx")
+theme_override_styles/panel = SubResource("StyleBoxFlat_xotb7")
 script = ExtResource("1_vg8rx")
 metadata/_tab_index = 1
 
@@ -134,7 +156,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 script = ExtResource("2_xotb7")
-advanced_text = "# New Save [mi:file-document-plus-outline, 32]
+advanced_text = "# **New Save** [mi:content-save-plus, 48]
 
 "
 parser = ExtResource("3_67nf4")

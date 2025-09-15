@@ -23,6 +23,7 @@ This [Godot](https://godotengine.org)'s project aiming to provide a way to make 
 - Save & Load (WIP)
 
 #### Those are modified from RGT
+
 - Main Menu
 - Pause Menu
 - Options
@@ -32,8 +33,10 @@ This [Godot](https://godotengine.org)'s project aiming to provide a way to make 
 History logs Say, Ask, Menu and Notify statements.
 
 You can easy add your own stuff to history like this:
-`VisualNovelKit.add_history_log(["tag", any_data])`
-Then in *scenes/PauseMenu/history_log_container.gd* you add func to handel this tag and data.
+`VisualNovelKit.add_history_log(["tag", any_data])`.
+
+Then in *scenes/PauseMenu/history_log_container.gd*
+you add func to handel this tag and data.
 
 ### Scripting dialogue langue inspired by Ren'Py
 - [Rakugo Dialogue Script core](https://rakugoteam.github.io/rakugo-docs/2.2/)
@@ -59,7 +62,7 @@ Unpack it, than import and start to editing it in Godot Engine.
 
 For now just download source code.
 Unpack it to your project.
-If have your own UI that you want you use then you only need *addons* dir. 
+If have your own UI that you want to use then you only need *addons* dir. 
 
 ## What do you need to know
 
@@ -88,9 +91,14 @@ notify 1 "long notification text" # display by 1s
 #### Node translations
 Add any **Node2D**, **Control** and **Node3D**
 to `show` group, then you can in rks script:
-```
+```renpy
 hide NodeName
 show NodeName
+
+# you don't need to add child nodes to `show` group if parent is
+show NodeName ChildA # will show both NodeName and its child
+show NodeName ChildB # will hide ChildA and show ChildB
+hide NodeName ChildB # will only ChildB
 
 # `at`, `scale`, `rotate` must be used with `show`
 
@@ -111,7 +119,7 @@ rotate 45 forward
 #### Animations support
 Add any **AnimationPlayer** nodes to group `anim`,
 then you can in rks script:
-```
+```renpy
 play AnimationPlayer animation_name speed
 pause AnimationPlayer
 stop AnimationPlayer
@@ -120,7 +128,7 @@ stop AnimationPlayer
 #### Audio support
 Add any **AudioStreamPlayer** nodes to `audio` group,
 then you can in rks script:
-```
+```renpy
 play AudioStreamPlayer speed
 seek AudioStreamPlayer from
 stop AudioStreamPlayer
