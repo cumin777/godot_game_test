@@ -22,7 +22,6 @@ addons/icon_finder/preview_size=24
 addons/rakugo/game_version=1.0
 addons/rakugo/narrator_name="narrator"
 addons/rakugo/debug=false
-addons/rakugo/save_folder="user://saves"
 addons/visual_novel_kit/default_markup_setting="res://addons/visualnovelkit/default_markups/def_markdown.tres"
 addons/visual_novel_kit/at_predefind/center=Vector2(50, 50)
 addons/visual_novel_kit/at_predefind/left=25.0
