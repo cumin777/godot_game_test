@@ -28,6 +28,7 @@ addons/visual_novel_kit/at_predefind/left=25.0
 addons/visual_novel_kit/at_predefind/right=75.0
 addons/visual_novel_kit/at_predefind/top=25.0
 addons/visual_novel_kit/at_predefind/bottom=75.0
+addons/rakugo/save_folder="user://saves"
 
 [autoload]
 
