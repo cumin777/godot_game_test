@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2lv8pxfcnayg" path="res://scenes/PauseMenu/history_log.tscn" id="4_8bpk1"]
 [ext_resource type="PackedScene" uid="uid://djnvp4x64ukay" path="res://scenes/OptionsMenu/OptionsContainer.tscn" id="4_pyl8d"]
 [ext_resource type="PackedScene" uid="uid://cy4anjja2feca" path="res://scenes/RGT_Dialogs/RGT_YesNoDialog.tscn" id="4_rf7yh"]
-[ext_resource type="PackedScene" uid="uid://bdw1wg7t60csg" path="res://scenes/LoadSaveMenu/SaveSlot.tscn" id="5_itqmq"]
+[ext_resource type="PackedScene" uid="uid://choevp6ilq78t" path="res://scenes/LoadSaveMenu/loadSaveMenu.tscn" id="5_itqmq"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_8bpk1"]
 
@@ -123,24 +123,21 @@ text = "Exit Game"
 
 [node name="TabContainer" type="TabContainer" parent="BoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-current_tab = 2
+current_tab = 0
 clip_tabs = false
 tabs_visible = false
 
 [node name="OptionsContainer" type="MarginContainer" parent="BoxContainer/TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 metadata/_tab_index = 0
-
-[node name="Panel" type="Panel" parent="BoxContainer/TabContainer/OptionsContainer"]
-layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/TabContainer/OptionsContainer"]
 layout_mode = 2
@@ -185,17 +182,11 @@ script = ExtResource("3_f5w72")
 history_log_scene = ExtResource("4_8bpk1")
 scroll = NodePath("..")
 
-[node name="SavesScrollContainer" type="ScrollContainer" parent="BoxContainer/TabContainer"]
+[node name="LoadSaveMenu" parent="BoxContainer/TabContainer" instance=ExtResource("5_itqmq")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
-
-[node name="GridContainer" type="GridContainer" parent="BoxContainer/TabContainer/SavesScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SaveSlot" parent="BoxContainer/TabContainer/SavesScrollContainer/GridContainer" instance=ExtResource("5_itqmq")]
-layout_mode = 2
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 unique_name_in_owner = true
