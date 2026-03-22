@@ -8,6 +8,49 @@
 [node name="Game" type="Node"]
 script = ExtResource("1_o2piy")
 
+[node name="BaseFill" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0588235, 0.101961, 1)
+
+[node name="Backdrop" type="Control" parent="." groups=["show"]]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Street" type="ColorRect" parent="Backdrop"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.14902, 0.254902, 1)
+
+[node name="Market" type="ColorRect" parent="Backdrop"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298039, 0.172549, 0.0901961, 1)
+
+[node name="Studio" type="ColorRect" parent="Backdrop"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.141176, 0.152941, 1)
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource("2_hcope")]

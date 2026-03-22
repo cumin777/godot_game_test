@@ -1,0 +1,36 @@
+character sy "Sylvie"
+sy.color = "#ffd166"
+character mn "Mina"
+mn.color = "#90e0ef"
+
+show Backdrop Street
+notify : "Visual Novel Kit demo"
+
+sy "There you are."
+"Rainwater still trembles on the station road."
+player_name = ? sy "Before we go, tell me your name." "Ari"
+sy "Good. Then let's start properly, <player_name>."
+mn "Two invitations arrive at the same time."
+
+menu:
+"Follow Sylvie to the lantern market" > market_route
+"Meet Mina at the riverside studio" > studio_route
+
+market_route:
+show Backdrop Market
+notify 1: "Warm light spills across the alley."
+sy "The market only feels honest after dark."
+sy "For a first demo, mood is enough."
+jump ending
+
+studio_route:
+show Backdrop Studio
+notify 1: "A window glows over the river."
+mn "The studio is quieter, but the city sounds closer here."
+mn "Sometimes a softer route tells you more."
+jump ending
+
+ending:
+"Whichever path you chose, the night opened one small door."
+sy "This is enough to prove the framework works."
+exit

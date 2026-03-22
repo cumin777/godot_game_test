@@ -34,7 +34,7 @@ func _on_ask_return(character: Dictionary, question: String, answer: String):
 	log_ui.show()
 	log_ui.ask_icon.show()
 	log_ui.set_labels(character, question)
-	log_ui.answer_label.advanced_text = "[b]Answer[\b]: _%s_ " % answer
+	log_ui.answer_label.advanced_text = "[b]Answer[/b]: _%s_ " % answer
 	log_ui.answer_label.show()
 
 func _on_menu_return(choice_text: String):

@@ -6,6 +6,7 @@ extends ProcentControl
 @export var line_edit: LineEdit
 
 var _question := ""
+var _character: Dictionary = {}
 
 func _ready():
 	if Engine.is_editor_hint(): return
@@ -15,7 +16,9 @@ func _ready():
 	set_process(false)
 
 func _on_ask(character: Dictionary, question: String, default_answer: String):
+	_character = character
 	_question = question
+	line_edit.text = ""
 	line_edit.placeholder_text = default_answer
 	say_panel.set_labels(character, question)
 	say_panel.show()
@@ -31,7 +34,7 @@ func _process(_delta: float):
 
 func ask_return(answer := ""):
 	Rakugo.ask_return(answer)
-	VisualNovelKit.add_history_log(["ask", _question, answer])
+	VisualNovelKit.add_history_log(["ask", _character, _question, answer])
 	hide()
 
 func _on_default_answer_btn_pressed():

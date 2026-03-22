@@ -70,14 +70,14 @@ layout_mode = 2
 [node name="Game_Title" type="Label" parent="VBoxContainer/HeaderMargin/TitlesContainer" unique_id=1129872925]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Game Title"
+text = "Lantern Crossroads"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Game_SubTitle" type="Label" parent="VBoxContainer/HeaderMargin/TitlesContainer" unique_id=744863332]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Game Subtitle"
+text = "A compact branching visual novel demo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
