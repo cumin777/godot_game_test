@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://2cvjfseljf2o" path="res://scenes/MainMenu/MainMenu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://scenes/Credits/Credits.tscn" id="3_5dhvp"]
+[ext_resource type="Texture2D" uid="uid://dbnso5xn0nnqy" path="res://asset/ui/壁纸2.webp" id="3_r8q81"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/rakugo_game_template/MusicPlayers/BackgroundMusicPlayer.tscn" id="4_w8sbm"]
 [ext_resource type="PackedScene" uid="uid://choevp6ilq78t" path="res://scenes/LoadSaveMenu/loadSaveMenu.tscn" id="5_mfpq2"]
 [ext_resource type="PackedScene" uid="uid://djnvp4x64ukay" path="res://scenes/OptionsMenu/OptionsContainer.tscn" id="6_ky335"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1378429681]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,19 +16,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
 
-[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("4_w8sbm")]
+[node name="BackgroundMusicPlayer" parent="." unique_id=953858072 instance=ExtResource("4_w8sbm")]
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1789718598]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_r8q81")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VersionNumber" type="Label" parent="."]
+[node name="VersionNumber" type="Label" parent="." unique_id=1680229038]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -45,7 +47,7 @@ theme_override_font_sizes/font_size = 18
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1049927817]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,31 +55,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HeaderMargin" type="MarginContainer" parent="VBoxContainer"]
+[node name="HeaderMargin" type="MarginContainer" parent="VBoxContainer" unique_id=449401537]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 64
 
-[node name="TitlesContainer" type="VBoxContainer" parent="VBoxContainer/HeaderMargin"]
+[node name="TitlesContainer" type="VBoxContainer" parent="VBoxContainer/HeaderMargin" unique_id=962615109]
 layout_mode = 2
 
-[node name="Game_Title" type="Label" parent="VBoxContainer/HeaderMargin/TitlesContainer"]
+[node name="Game_Title" type="Label" parent="VBoxContainer/HeaderMargin/TitlesContainer" unique_id=1129872925]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Game Title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Game_SubTitle" type="Label" parent="VBoxContainer/HeaderMargin/TitlesContainer"]
+[node name="Game_SubTitle" type="Label" parent="VBoxContainer/HeaderMargin/TitlesContainer" unique_id=744863332]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Game Subtitle"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1142350788]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -85,67 +87,67 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1978114642]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="MenuButtons" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="MenuButtons" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=190850722]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons"]
+[node name="ContinueButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons" unique_id=1078653346]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Continue"
 alignment = 0
 
-[node name="PlayButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons"]
+[node name="PlayButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons" unique_id=571388387]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
 alignment = 0
 
-[node name="LoadButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons"]
+[node name="LoadButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons" unique_id=1812755830]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Load"
 alignment = 0
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons" unique_id=1123619322]
 layout_mode = 2
 text = "Options
 "
 alignment = 0
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons"]
+[node name="CreditsButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons" unique_id=2020978044]
 layout_mode = 2
 text = "Credits"
 alignment = 0
 
-[node name="ExitButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons"]
+[node name="ExitButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MenuButtons" unique_id=1658120813]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Exit"
 alignment = 0
 
-[node name="CreditsContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_5dhvp")]
+[node name="CreditsContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1590480823 instance=ExtResource("3_5dhvp")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 vertical_scroll_mode = 1
 
-[node name="OptionsMenu" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="OptionsMenu" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=954589535]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/OptionsMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/OptionsMenu" unique_id=1573359688]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -158,16 +160,16 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="OptionsContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/OptionsMenu/MarginContainer" instance=ExtResource("6_ky335")]
+[node name="OptionsContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/OptionsMenu/MarginContainer" unique_id=1469955819 instance=ExtResource("6_ky335")]
 layout_mode = 2
 
-[node name="LoadSaveMenu" parent="VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_mfpq2")]
+[node name="LoadSaveMenu" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1157058329 instance=ExtResource("5_mfpq2")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1789812869]
 unique_name_in_owner = true
 dialog_text = "Quit the Game ?"
 
