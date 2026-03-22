@@ -1,5 +1,7 @@
 # ![Logo](WindowIcon.png) Visual Novel Kit
 
+This repository is based on [rakugoteam/VisualNovelKit](https://github.com/rakugoteam/VisualNovelKit) and contains local modifications for personal use and development.
+
 ![MIT License](https://img.shields.io/static/v1.svg?label=📜%20License&message=MIT&color=informational)
 [![Join the Discord channel](https://img.shields.io/static/v1.svg?label=Join%20our%20Discord%20channel&message=🎆&color=7289DA&logo=discord&logoColor=white&labelColor=2C2F33)](https://discord.gg/K9gvjdg)
 
