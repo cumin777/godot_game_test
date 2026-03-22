@@ -29,7 +29,7 @@ const json_extension = "json"
 ## after update it, can be used to check if save(s) exist or not [br]
 ## should be clear with SaveHelper.clear_save_files_names to avoid
 ## memory consumption
-static var save_file_names:PackedStringArray
+static var save_file_names:PackedStringArray = PackedStringArray()
 
 ## the last saved file name without extension .json
 static var last_saved_file_name := ""

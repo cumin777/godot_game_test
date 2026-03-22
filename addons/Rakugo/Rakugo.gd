@@ -227,6 +227,43 @@ func _ready():
 	var narrator_name = ProjectSettings.get_setting(narrator_name)
 	define_character("narrator", narrator_name)
 
+func get_save_data() -> Dictionary:
+	var save_data := {
+		"variables": store_manager.variables.duplicate(true),
+		"characters": store_manager.characters.duplicate(true),
+	}
+	var thread_datas = executer.get_current_thread_datas()
+	if thread_datas.is_empty():
+		return save_data
+
+	var parsed_script = store_manager.parsed_scripts.get(
+		thread_datas["file_base_name"], {}
+	)
+	if parsed_script.is_empty():
+		return save_data
+
+	thread_datas = thread_datas.duplicate(true)
+	thread_datas["path"] = parsed_script["path"]
+	save_data["thread_datas"] = thread_datas
+	return save_data
+
+func apply_save_data(save_data: Dictionary) -> int:
+	if save_data.is_empty():
+		push_error("Rakugo save data is empty")
+		return FAILED
+
+	store_manager.variables = save_data.get("variables", {}).duplicate(true)
+	store_manager.characters = save_data.get("characters", {}).duplicate(true)
+	last_thread_datas = save_data.get("thread_datas", {}).duplicate(true)
+
+	if last_thread_datas.is_empty():
+		return OK
+	if not last_thread_datas.has("path"):
+		push_error("Rakugo save data is missing thread path")
+		return FAILED
+
+	return parse_script(last_thread_datas["path"])
+
 ## Save all variables, characters, script_name and last line readed on last executed script, in user://save/save_name/save.json file.
 func save_game(save_name: String = "quick"):
 	mutex.lock()
