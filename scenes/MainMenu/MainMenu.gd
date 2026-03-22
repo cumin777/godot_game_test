@@ -30,6 +30,8 @@ func _close_sub_menu():
 	sub_menu = null
 
 func _ready():
+	SaveHelper.update_save_file_names()
+
 	if OS.has_feature("web"):
 		%ExitButton.hide()
 	else:

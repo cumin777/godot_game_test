@@ -53,9 +53,8 @@ func _on_delete_button_pressed(save_panel: Node, save_file_name: String):
 func _on_confirmation_dialog_confirmed() -> void:
 	match (popup_mode):
 		Modes.Loading:
-			# SaveHelper.save_file_name_to_load = current_save_file_name
-			# SceneLoader.change_scene(RGT_Globals.first_game_scene_setting)
-			SaveHelper.load(current_save_file_name)
+			SaveHelper.save_file_name_to_load = current_save_file_name
+			SceneLoader.change_scene(RGT_Globals.first_game_scene_setting)
 			
 		Modes.Deleting:
 			SaveHelper.delete(current_save_file_name)

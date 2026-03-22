@@ -77,6 +77,7 @@ func _on_save_button_pressed() -> void:
 
 func save_this_please(data: Dictionary):
 	if SaveHelper.save(data) == OK:
+		SaveHelper.update_save_file_names()
 		accept_dialog.hide()
 		hide()
 		
